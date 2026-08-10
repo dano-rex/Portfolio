@@ -21,7 +21,7 @@ const projects = [
       'A full-stack e-commerce solution with product listings, shopping cart, user auth, and a simulated payment gateway. Built with React, Node.js, Express, and PostgreSQL.',
     tags: ['React', 'Node.js', 'Express', 'PostgreSQL', 'Prisma'],
     github: 'https://github.com/dano-rex',
-    live: '#',
+    live: 'https://marqete.netlify.app',
     gradient: 'from-cyan-500/20 to-teal-500/20',
     accent: '#06B6D4',
   },
@@ -122,13 +122,17 @@ export function Project() {
                 >
                   <GithubIcon className="w-5 h-5" />
                 </a>
-                <a
-                  href={project.live}
-                  className="p-2 text-text/50 hover:text-text transition-colors hover:scale-110 active:scale-95 transition-transform"
-                  aria-label="Live Demo"
-                >
-                  <ExternalLink className="w-5 h-5" />
-                </a>
+                {project.live !== '#' && (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="p-2 text-text/50 hover:text-text transition-colors hover:scale-110 active:scale-95 transition-transform"
+                    aria-label="Live Demo"
+                  >
+                    <ExternalLink className="w-5 h-5" />
+                  </a>
+                )}
                 <span className="ml-auto text-[10px] font-mono text-text/30 uppercase tracking-wider">
                   View Project →
                 </span>

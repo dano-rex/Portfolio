@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================
+   Theme tokens. Light and dark are both a warm/near-black pair
+   rather than harsh pure white/black, with one signature
+   violet-indigo accent shared (at different intensities)
+   across both modes.
+   ========================================================== */
+
+.aid-root {
+  --bg: #f6f4ee;
+  --surface: #ffffff;
+  --surface-2: #efebe0;
+  --ink: #15141b;
+  --muted: #6b6976;
+  --hair: #e2dfd3;
+  --accent: #463bcb;
+  --accent-ink: #ffffff;
+  --accent-soft: #ebe9fa;
+
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  transition: background-color 0.6s ease, color 0.6s ease;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: clip;
+}
+
+.aid-root[data-theme="dark"] {
+  --bg: #0a0a0e;
+  --surface: #131218;
+  --surface-2: #1b1a22;
+  --ink: #f2f0ea;
+  --muted: #8d8b98;
+  --hair: #242230;
+  --accent: #8477ff;
+  --accent-ink: #0a0a0e;
+  --accent-soft: rgba(132, 119, 255, 0.14);
+}
+
+.aid-root * {
+  transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
+}
+
+.aid-display {
+  font-family: "Space Grotesk", sans-serif;
+}
+.aid-voice {
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+}
+
+.aid-ink {
+  color: var(--ink);
+}
+.aid-muted {
+  color: var(--muted);
+}
+.aid-bg {
+  background: var(--bg);
+}
+.aid-surface {
+  background: var(--surface);
+}
+.aid-surface2 {
+  background: var(--surface-2);
+}
+.aid-hair {
+  border-color: var(--hair);
+}
+.aid-accent {
+  color: var(--accent);
+}
+.aid-accent-bg {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.aid-accent-soft {
+  background: var(--accent-soft);
+}
+.aid-accent-border {
+  border-color: var(--accent);
+}
+
+.aid-root ::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.aid-focus:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.aid-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.aid-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--hair);
+  border-radius: 4px;
+}
+
+.aid-underline {
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  transition: background-size 0.35s ease;
+}
+.aid-underline:hover {
+  background-size: 100% 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aid-root * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
